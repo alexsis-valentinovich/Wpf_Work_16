@@ -17,6 +17,11 @@
                 <ArcSegment Size="50,200" Point="350,180"></ArcSegment>
             </PathFigure>
         </PathGeometry>
+        <PathGeometry x:Key="pathdown1">
+            <PathFigure StartPoint="395,80" IsClosed="False">
+                <ArcSegment Size="50,100" Point="395,280"></ArcSegment>
+            </PathFigure>
+        </PathGeometry>
     </Window.Resources>
     <Canvas>
         <Ellipse x:Name="Ball" Width="20" Height="20" Stroke="Black" Canvas.Top="180" Canvas.Left="440" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -62,6 +67,24 @@
                                 Source="X"
                                 AccelerationRatio="1">
                             </DoubleAnimationUsingPath>
+
+                            <DoubleAnimationUsingPath
+                                BeginTime="0:0:6"
+                                Storyboard.TargetProperty = "(Canvas.Top)"
+                                PathGeometry="{StaticResource pathdown1}"
+                                Duration="0:0:3"
+                                Source="Y"
+                                AccelerationRatio="1">
+                            </DoubleAnimationUsingPath>
+                            <DoubleAnimationUsingPath
+                                BeginTime="0:0:6"
+                                Storyboard.TargetProperty = "(Canvas.Left)"
+                                PathGeometry="{StaticResource pathdown1}"
+                                Duration="0:0:3"
+                                Source="X"
+                                AccelerationRatio="1">
+                            </DoubleAnimationUsingPath>
+                            
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -69,5 +92,6 @@
         </Ellipse>
         <Path Data="{StaticResource pathup}" Stroke="Black" StrokeThickness="0.5"/>
         <Path Data="{StaticResource pathdown}" Stroke="Black" StrokeThickness="0.5"/>
+        <Path Data="{StaticResource pathdown1}" Stroke="Black" StrokeThickness="0.5"/>
     </Canvas>
 </Window>
